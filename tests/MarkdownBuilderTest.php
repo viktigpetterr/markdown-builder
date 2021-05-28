@@ -92,6 +92,29 @@ MARKDOWN;
         self::assertEquals($markdown, $builder->getMarkdown());
     }
 
+    public function testH4(): void
+    {
+        $markdown = <<<MARKDOWN
+#### foo bar
+MARKDOWN;
+
+        $builder = new MarkdownBuilder();
+        $builder->h4('foo bar');
+        self::assertEquals($markdown, $builder->getMarkdown());
+    }
+
+    public function testH4Multiline(): void
+    {
+        $markdown = <<<MARKDOWN
+#### foo bar
+MARKDOWN;
+
+        $builder = new MarkdownBuilder();
+        $builder->h4('foo
+        bar');
+        self::assertEquals($markdown, $builder->getMarkdown());
+    }
+
     public function testBlockquote(): void
     {
         $markdown = <<<MARKDOWN
@@ -325,6 +348,24 @@ MARKDOWN;
 MARKDOWN;
 
         self::assertEquals($markdown, MarkdownBuilder::inlineCode('$var = "foo";'));
+    }
+
+    public function testInlineTab(): void
+    {
+        $markdown = <<<MARKDOWN
+&nbsp;&nbsp;&nbsp;&nbsp;test
+MARKDOWN;
+
+        self::assertEquals($markdown, MarkdownBuilder::inlineTab() . 'test');
+    }
+
+    public function testInlineSpace(): void
+    {
+        $markdown = <<<MARKDOWN
+&nbsp;test
+MARKDOWN;
+
+        self::assertEquals($markdown, MarkdownBuilder::inlineSpace() . 'test');
     }
 
     public function testReadme(): void
