@@ -221,6 +221,11 @@ class MarkdownBuilder
         return sprintf('![%s](%s)', $title, $url);
     }
 
+    public static function inlineTab(): string
+    {
+        return '&nbsp;&nbsp;&nbsp;&nbsp;';
+    }
+
     public function getMarkdown(): string
     {
         return trim($this->markdown);

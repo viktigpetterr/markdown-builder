@@ -327,6 +327,15 @@ MARKDOWN;
         self::assertEquals($markdown, MarkdownBuilder::inlineCode('$var = "foo";'));
     }
 
+    public function testInlineTab(): void
+    {
+        $markdown = <<<MARKDOWN
+&nbsp;&nbsp;&nbsp;&nbsp;test
+MARKDOWN;
+
+        self::assertEquals($markdown, MarkdownBuilder::inlineTab() . 'test');
+    }
+
     public function testReadme(): void
     {
         $markdown = <<<MARKDOWN
