@@ -223,7 +223,12 @@ class MarkdownBuilder
 
     public static function inlineTab(): string
     {
-        return '&nbsp;&nbsp;&nbsp;&nbsp;';
+        return self::inlineSpace() . self::inlineSpace() . self::inlineSpace() . self::inlineSpace();
+    }
+
+    public static function inlineSpace(): string
+    {
+        return '&nbsp;';
     }
 
     public function getMarkdown(): string

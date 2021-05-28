@@ -336,6 +336,15 @@ MARKDOWN;
         self::assertEquals($markdown, MarkdownBuilder::inlineTab() . 'test');
     }
 
+    public function testInlineSpace(): void
+    {
+        $markdown = <<<MARKDOWN
+&nbsp;test
+MARKDOWN;
+
+        self::assertEquals($markdown, MarkdownBuilder::inlineSpace() . 'test');
+    }
+
     public function testReadme(): void
     {
         $markdown = <<<MARKDOWN
