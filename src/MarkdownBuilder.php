@@ -86,6 +86,18 @@ class MarkdownBuilder
     /**
      * @return $this
      */
+    public function h4(string $header): self
+    {
+        $header = $this->singleLine($header);
+
+        return $this
+            ->writeln('#### ' . $header)
+            ->br();
+    }
+
+    /**
+     * @return $this
+     */
     public function blockquote(string $text): self
     {
         $lines = explode("\n", $text);
